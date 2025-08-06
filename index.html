@@ -8,13 +8,23 @@
 </head>
 <body>
   <div class="container">
-    <h1>🎯 Get Your Motivational Quote</h1>
-    <input type="text" id="username" placeholder="Enter your name" />
-    <button onclick="showQuote()">Get Quote</button>
+    <h1>🚀 Your Daily Motivation</h1>
+    
+    <input 
+      type="text" 
+      id="username" 
+      placeholder="Enter your name" 
+      autocomplete="off" 
+      autofocus 
+    />
+
+    <button onclick="showQuote()">🎯 Get Quote</button>
+
     <div id="quote"></div>
+    <canvas id="confetti-canvas"></canvas>
   </div>
+
+  <script src="confetti.js"></script>
   <script src="script.js"></script>
-  <canvas id="confetti-canvas"></canvas>
-<script src="confetti.js"></script>
 </body>
 </html>
