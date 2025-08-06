@@ -22,4 +22,6 @@ function showQuote() {
 
   const randomIndex = Math.floor(Math.random() * quotes.length);
   quoteBox.textContent = `${name}, ${quotes[randomIndex]}`;
+  startConfetti();
+setTimeout(stopConfetti, 2000);
 }
