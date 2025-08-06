@@ -1,4 +1,32 @@
-function showQuote() {
+function showQuote()function copyQuote() {
+  const quoteText = document.getElementById("quote").textContent;
+  if (!quoteText) return;
+
+  navigator.clipboard.writeText(quoteText).then(() => {
+    alert("Quote copied to clipboard!");
+
+    // 📊 Track in GA
+    gtag('event', 'quote_copied', {
+      'event_category': 'interaction',
+      'event_label': 'Copied to clipboard'
+    });
+  });
+}
+
+function shareQuote() {
+  const quoteText = document.getElementById("quote").textContent;
+  if (!quoteText) return;
+
+  const whatsappURL = `https://wa.me/?text=${encodeURIComponent(quoteText)}`;
+  window.open(whatsappURL, '_blank');
+
+  // 📊 Track in GA
+  gtag('event', 'quote_shared', {
+    'event_category': 'interaction',
+    'event_label': 'Shared via WhatsApp'
+  });
+}
+{
   const name = document.getElementById("username").value.trim();
   const quoteBox = document.getElementById("quote");
 
