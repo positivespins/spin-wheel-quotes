@@ -45,8 +45,6 @@ button {
   font-size: 1.1em;
   font-weight: 600;
   width: 100%;
-  background-color: #4CAF50;
-  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -54,8 +52,13 @@ button {
   box-sizing: border-box;
 }
 
-button:hover {
-  background-color: #388e3c;
+/* ✅ Only the main Get Quote button stays green */
+.container > button {
+  background-color: #4CAF50;
+  color: white;
+}
+.container > button:hover {
+  background-color: #388E3C;
 }
 
 #quote {
@@ -113,13 +116,50 @@ button:hover {
 .actions button {
   padding: 10px 16px;
   font-size: 1em;
+  font-weight: 600;
   border: none;
   border-radius: 6px;
+  color: white !important;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-weight: 600;
-  color: white;
+  width: auto;
 }
 
 /* 📋 Copy Button */
-.actions button:nth-child(1
+.actions button:nth-child(1) {
+  background-color: #607D8B !important;
+}
+.actions button:nth-child(1):hover {
+  background-color: #455A64 !important;
+}
+
+/* 📤 Share Button */
+.actions button:nth-child(2) {
+  background-color: #4CAF50 !important;
+}
+.actions button:nth-child(2):hover {
+  background-color: #388E3C !important;
+}
+
+/* 📱 Mobile Styles */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  #quote {
+    font-size: 1.2em;
+    padding: 16px;
+  }
+
+  button,
+  .actions button {
+    font-size: 1em;
+    width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
