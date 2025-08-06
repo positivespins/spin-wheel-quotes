@@ -44,4 +44,8 @@ function showQuote() {
   // Confetti
   startConfetti();
   setTimeout(stopConfetti, 2000);
+  gtag('event', 'spin_button_clicked', {
+  'event_category': 'engagement',
+  'event_label': 'Quote Generated'
+});
 }
