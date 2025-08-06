@@ -35,9 +35,9 @@ function showQuote() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   const personalizedQuote = `${emoji} ${name}, ${quotes[randomIndex]}`;
 
-  // Animate + update quote
+  // Animate the quote
   quoteBox.classList.remove("animate");
-  void quoteBox.offsetWidth; // trigger reflow
+  void quoteBox.offsetWidth;
   quoteBox.textContent = personalizedQuote;
   quoteBox.classList.add("animate");
 
@@ -45,7 +45,7 @@ function showQuote() {
   startConfetti();
   setTimeout(stopConfetti, 2000);
 
-  // GA: Track Get Quote click
+  // GA: Track quote generation
   gtag('event', 'spin_button_clicked', {
     'event_category': 'engagement',
     'event_label': 'Quote Generated'
@@ -59,7 +59,7 @@ function copyQuote() {
   navigator.clipboard.writeText(quoteText).then(() => {
     alert("Quote copied to clipboard!");
 
-    // GA: Track Copy
+    // GA: Track copy
     gtag('event', 'quote_copied', {
       'event_category': 'interaction',
       'event_label': 'Copied to clipboard'
@@ -74,7 +74,7 @@ function shareQuote() {
   const whatsappURL = `https://wa.me/?text=${encodeURIComponent(quoteText)}`;
   window.open(whatsappURL, '_blank');
 
-  // GA: Track Share
+  // GA: Track share
   gtag('event', 'quote_shared', {
     'event_category': 'interaction',
     'event_label': 'Shared via WhatsApp'
