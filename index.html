@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +9,12 @@
 <body>
   <div class="container">
     <h1>✨ Spin the Wheel for a Positive Quote ✨</h1>
+    <input type="text" id="username" placeholder="Enter your name" />
     <div id="wheel" onclick="spinWheel()">🎡 Spin Me</div>
     <div id="quote"></div>
+    <canvas id="confetti-canvas"></canvas>
   </div>
+  <script src="confetti.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
