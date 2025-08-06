@@ -54,11 +54,20 @@ const quotes = [
 function spinWheel() {
   const wheel = document.getElementById("wheel");
   const quoteBox = document.getElementById("quote");
+  const nameInput = document.getElementById("username").value.trim();
+
+  if (!nameInput) {
+    alert("Please enter your name first!");
+    return;
+  }
+
   wheel.classList.add("spin");
 
   setTimeout(() => {
     wheel.classList.remove("spin");
     const randomIndex = Math.floor(Math.random() * quotes.length);
-    quoteBox.innerText = quotes[randomIndex];
+    quoteBox.innerText = nameInput + ", " + quotes[randomIndex];
+    startConfetti();
+    setTimeout(stopConfetti, 2000);
   }, 2000);
 }
