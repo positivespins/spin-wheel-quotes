@@ -35,9 +35,13 @@ function showQuote() {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   const personalizedQuote = `${emoji} ${name}, ${quotes[randomIndex]}`;
 
+  // Animate + update quote
+  quoteBox.classList.remove("animate");
+  void quoteBox.offsetWidth; // trigger reflow
   quoteBox.textContent = personalizedQuote;
+  quoteBox.classList.add("animate");
 
-  // Trigger confetti
+  // Confetti
   startConfetti();
   setTimeout(stopConfetti, 2000);
 }
