@@ -36,7 +36,7 @@ function updateConfetti() {
     confettiCtx.moveTo(p.x + p.tilt + p.r / 2, p.y);
     confettiCtx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
     confettiCtx.stroke();
-    p.y += Math.cos(p.d) + 3;
+    p.y += Math.cos(p.d) + 1;
     p.tiltAngle += p.tiltAngleIncremental;
     p.tilt = Math.sin(p.tiltAngle) * 15;
     if (p.y > confettiCanvas.height) {
