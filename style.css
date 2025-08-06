@@ -1,45 +1,61 @@
+/* Reset and body style */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
 }
+
+/* Main container */
 .container {
   text-align: center;
-  padding: 20px;
+  background-color: #ffffff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+  width: 90%;
 }
+
+/* Heading */
 h1 {
   font-size: 1.8em;
   color: #333;
-}
-#username {
-  padding: 10px;
-  font-size: 1em;
   margin-bottom: 20px;
-  width: 250px;
+}
+
+/* Name input field */
+#username {
+  padding: 10px 15px;
+  font-size: 1em;
+  width: 100%;
+  max-width: 300px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px;
+  margin-bottom: 20px;
 }
-#wheel {
-  margin: 20px auto;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #e0f7fa, #b2ebf2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.4em;
+
+/* Button styling */
+button {
+  padding: 12px 20px;
+  font-size: 1em;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 2s ease;
+  transition: background-color 0.3s ease;
 }
-#wheel.spin {
-  transform: rotate(1440deg);
+
+button:hover {
+  background-color: #1976d2;
 }
+
+/* Quote text */
 #quote {
   margin-top: 30px;
   font-size: 1.6em;
@@ -50,12 +66,4 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   line-height: 1.4;
-}
-#confetti-canvas {
-  position: fixed;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
