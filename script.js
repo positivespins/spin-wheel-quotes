@@ -161,3 +161,24 @@ function shareQuote() {
     'event_label': 'Shared via WhatsApp'
   });
 }
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js').then(reg => {
+    console.log('✅ Service Worker Registered');
+
+    // Check for updates
+    reg.onupdatefound = () => {
+      const newWorker = reg.installing;
+      newWorker.onstatechange = () => {
+        if (
+          newWorker.state === 'installed' &&
+          navigator.serviceWorker.controller
+        ) {
+          const refresh = confirm('🚀 New version available. Refresh now?');
+          if (refresh) window.location.reload();
+        }
+      };
+    };
+  }).catch(err => {
+    console.error('❌ Service Worker error', err);
+  });
+}
