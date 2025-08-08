@@ -24,7 +24,7 @@
   <!-- ✅ Apple iOS App Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="icon-192.png" />
 
-  <!-- ✅ Favicon fix -->
+  <!-- ✅ Favicon -->
   <link rel="icon" type="image/png" href="icon-192.png" />
 </head>
 <body>
@@ -46,12 +46,40 @@
     <div class="actions">
       <button onclick="copyQuote()">📋 Copy</button>
       <button onclick="shareQuote()">📤 Share</button>
+      <button id="notifyBtn">🔔 Enable Notifications</button>
     </div>
 
     <canvas id="confetti-canvas"></canvas>
   </div>
 
-  <!-- ✅ JS Scripts -->
+  <!-- ✅ OneSignal Push Notifications -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "342512e9-bd1e-46ea-95c7-4889d82a4a78",
+      });
+    });
+
+    // ✅ Show push prompt only once per day
+    document.getElementById("notifyBtn").addEventListener("click", function() {
+      const lastShown = localStorage.getItem("pushPromptShown");
+      const now = Date.now();
+      const oneDay = 24 * 60 * 60 * 1000; // 1 day in ms
+
+      if (!lastShown || now - lastShown > oneDay) {
+        OneSignalDeferred.push(function(OneSignal) {
+          OneSignal.Slidedown.promptPush();
+        });
+        localStorage.setItem("pushPromptShown", now);
+      } else {
+        alert("✅ Notifications already enabled or prompt shown today.");
+      }
+    });
+  </script>
+
+  <!-- ✅ App JS -->
   <script src="confetti.js"></script>
   <script src="script.js"></script>
   <script>
